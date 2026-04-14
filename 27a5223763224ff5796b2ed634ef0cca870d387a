@@ -1,0 +1,25 @@
+src/components/slides/Slide09Closing.svelte
+  5c9f6c65931efc92 6-19,23-25,27-29,32-61,64-66,70-87,89-98,101-140,142-144,147-151,154-157,160,162-215,218-246,249-250,252-510
+src/components/slides/Slide01Hero.svelte
+  5c9f6c65931efc92 10-11,13-22,24,28-33,35-46,49-53,59-64,71-84,89-96,99,101-103,105,107,109-118,121-128,132,138,140-223,226-315,318-349,351-379,381-409,411-414
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "27a5223763224ff5796b2ed634ef0cca870d387a",
+  "prompts": {
+    "5c9f6c65931efc92": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fe55ac64-c345-42d3-ad89-69e2e25223a2",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Alejandro de la Fuente de la Rosa",
+      "messages": [],
+      "total_additions": 846,
+      "total_deletions": 60,
+      "accepted_lines": 846,
+      "overriden_lines": 0
+    }
+  }
+}
