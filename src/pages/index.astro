@@ -1,0 +1,27 @@
+---
+import PresentationLayout from '../layouts/PresentationLayout.astro';
+import Navigation from '../components/Navigation.svelte';
+import Slide01Hero from '../components/slides/Slide01Hero.svelte';
+import Slide02TheProblem from '../components/slides/Slide02TheProblem.svelte';
+import Slide03Definition from '../components/slides/Slide03Definition.svelte';
+import Slide04Benefits from '../components/slides/Slide04Benefits.svelte';
+import Slide05WhenToUse from '../components/slides/Slide05WhenToUse.svelte';
+import Slide06WhenNotToUse from '../components/slides/Slide06WhenNotToUse.svelte';
+import Slide07Methodologies from '../components/slides/Slide07Methodologies.svelte';
+import Slide08Example from '../components/slides/Slide08Example.svelte';
+import Slide09Closing from '../components/slides/Slide09Closing.svelte';
+---
+
+<PresentationLayout title="Spec-Driven Development (SDD)">
+  <Navigation client:load>
+    <Slide01Hero client:load />
+    <Slide02TheProblem client:load />
+    <Slide03Definition client:load />
+    <Slide04Benefits client:load />
+    <Slide05WhenToUse client:load />
+    <Slide06WhenNotToUse client:load />
+    <Slide07Methodologies client:load />
+    <Slide08Example client:load />
+    <Slide09Closing client:load />
+  </Navigation>
+</PresentationLayout>
