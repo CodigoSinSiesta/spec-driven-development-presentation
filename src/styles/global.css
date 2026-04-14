@@ -15,6 +15,14 @@
   --color-shadow: rgba(10, 22, 40, 0.8);
   --color-shadow-light: rgba(10, 22, 40, 0.4);
   --color-glow: rgba(59, 130, 246, 0.3);
+  --color-accent-soft: rgba(59, 130, 246, 0.08);
+  --color-accent-strong: rgba(59, 130, 246, 0.45);
+  --color-electric-soft: rgba(96, 165, 250, 0.12);
+  --color-electric-strong: rgba(96, 165, 250, 0.45);
+  --color-hero-glow-primary: rgba(96, 165, 250, 0.25);
+  --color-hero-glow-secondary: rgba(59, 130, 246, 0.2);
+  --color-hero-base: rgba(10, 22, 40, 0.96);
+  --color-hero-base-deep: rgba(10, 22, 40, 0.98);
 
   /* Typography */
   --font-display: 'Space Grotesk', sans-serif;

@@ -63,8 +63,8 @@
 
   .conclusion {
     margin: 0;
-    border: 1px solid rgba(103, 232, 249, 0.45);
-    background: rgba(103, 232, 249, 0.08);
+    border: 1px solid var(--color-accent-strong);
+    background: var(--color-accent-soft);
     border-radius: var(--radius-md);
     padding: 0.9rem 1rem;
   }

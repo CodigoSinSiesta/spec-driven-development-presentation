@@ -51,6 +51,12 @@ El workflow de GitHub Pages publica automáticamente en `main`.
 
 Notas por slide en `guia/`.
 
+## Estándar de marca
+
+- Estándar final de validación narrativa y visual: `guia/00-estandar-marca-validacion.md`.
+- Auditoría aplicada a esta presentación: `guia/10-auditoria-marca-sdd-2026-04-14.md`.
+- Gate operativo de publicación: validación CMO + QA técnico (o QA proxy mientras se desbloquea [COD-13](/COD/issues/COD-13)).
+
 ## Integración en el site principal
 
 Para incluir esta charla en `codigosinsiesta.github.io`, añadir el enlace de esta URL en la sección de presentaciones del sitio principal.

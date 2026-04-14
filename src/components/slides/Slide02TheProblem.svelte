@@ -69,8 +69,8 @@
   }
 
   .insight {
-    border: 1px solid rgba(45, 212, 191, 0.45);
-    background: rgba(45, 212, 191, 0.08);
+    border: 1px solid var(--color-electric-strong);
+    background: var(--color-electric-soft);
     border-radius: var(--radius-md);
     padding: 0.9rem 1rem;
     font-size: 1rem;
