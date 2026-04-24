@@ -473,13 +473,11 @@
   }
 
   @media (max-width: 768px) {
-    .nav-btn {
-      width: 44px;
-      height: 44px;
+    /* En mobile las flechas laterales tapan contenido; se navega por swipe + drawer. */
+    .nav-btn-prev,
+    .nav-btn-next {
+      display: none;
     }
-
-    .nav-btn-prev { left: var(--spacing-lg); }
-    .nav-btn-next { right: var(--spacing-lg); }
 
     .slide-counter {
       bottom: var(--spacing-lg);

@@ -25,7 +25,7 @@
 
   <div class="slide-content">
     <div class="closing-header">
-      <span class="label">Takeaways</span>
+      <span class="label">Cierre</span>
       <h2 class="title">De la intuición al <span class="highlight">contrato</span></h2>
     </div>
 
@@ -42,6 +42,19 @@
       </div>
 
       <div class="right-col">
+        <div class="next-step-card">
+          <span class="ns-label">Siguiente paso</span>
+          <h3 class="ns-title">Piloto de 2 sprints</h3>
+          <p class="ns-desc">
+            Una feature crítica. Dos métricas: PRs reabiertos por interpretación y tiempo hasta aprobación en QA.
+            Si ambas mejoran, se extiende. Si no, se revisa.
+          </p>
+          <div class="ns-tool">
+            <span class="ns-tool-icon">⭐</span>
+            <span class="ns-tool-text">Herramienta sugerida: <strong>OpenSpec</strong></span>
+          </div>
+        </div>
+
         <div class="resources-card">
           <h3 class="resources-title">Recursos</h3>
           <div class="resources-list">
@@ -195,6 +208,69 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
+  }
+
+  /* Next step card */
+  .next-step-card {
+    padding: var(--spacing-lg);
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    border-radius: var(--radius-md);
+    box-shadow:
+      0 0 24px rgba(59, 130, 246, 0.12),
+      inset 0 1px 1px 0 rgba(96, 165, 250, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .ns-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-electric);
+    opacity: 0.85;
+  }
+
+  .ns-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-neutral-light);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .ns-desc {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--color-neutral-light);
+    opacity: 0.82;
+    line-height: 1.55;
+  }
+
+  .ns-tool {
+    margin-top: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(10, 22, 40, 0.4);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .ns-tool-icon { font-size: 0.95rem; }
+
+  .ns-tool-text {
+    font-size: 0.78rem;
+    color: var(--color-neutral-light);
+    opacity: 0.88;
+  }
+
+  .ns-tool-text strong {
+    color: var(--color-electric);
+    font-weight: 700;
   }
 
   /* Resources card */

@@ -296,6 +296,7 @@
   .tool-card {
     position: relative;
     padding: var(--spacing-md);
+    padding-top: calc(var(--spacing-md) + 10px);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
@@ -312,16 +313,16 @@
 
   .featured-badge {
     position: absolute;
-    top: -10px;
-    right: var(--spacing-sm);
+    top: 6px;
+    right: 6px;
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-base-dark);
     background: linear-gradient(135deg, var(--color-accent-bright), var(--color-electric));
-    padding: 3px 10px;
+    padding: 3px 8px;
     border-radius: 999px;
     box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
   }

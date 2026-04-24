@@ -7,27 +7,31 @@
   const benefits = [
     {
       icon: '🎯',
-      metric: '1 lenguaje',
+      metric: '+alineación',
       title: 'Alineación técnica y funcional',
       desc: 'Producto y desarrollo discuten sobre escenarios concretos, no sobre interpretaciones.',
+      timing: 'Sprint 1',
     },
     {
       icon: '🧱',
       metric: '−deuda',
       title: 'Menos deuda accidental',
       desc: 'El diseño técnico nace con restricciones explícitas y evita reescrituras tempranas.',
+      timing: 'Sprint 2–3',
     },
     {
       icon: '🧪',
       metric: '+propósito',
       title: 'Tests con propósito',
       desc: 'Las pruebas cubren criterios de aceptación reales, no solo detalles internos.',
+      timing: 'Sprint 3+',
     },
     {
       icon: '🚀',
       metric: '−rampa',
       title: 'Onboarding más rápido',
       desc: 'Nuevos miembros entienden el sistema leyendo specs vivas y ejecutables.',
+      timing: 'Meses 3+',
     },
   ];
 </script>
@@ -50,9 +54,29 @@
           </div>
           <h3 class="benefit-title">{b.title}</h3>
           <p class="benefit-desc">{b.desc}</p>
+          <div class="benefit-timing">
+            <span class="timing-label">Aparece en</span>
+            <span class="timing-value">{b.timing}</span>
+          </div>
         </article>
       {/each}
     </div>
+
+    <section class="timeline">
+      <div class="timeline-header">
+        <span class="timeline-label">Los 4 retornos no son simultáneos</span>
+      </div>
+      <div class="timeline-track">
+        <div class="tl-marker tl-1"><span class="tl-dot"></span><span class="tl-text">Alineación</span></div>
+        <div class="tl-marker tl-2"><span class="tl-dot"></span><span class="tl-text">Menos deuda</span></div>
+        <div class="tl-marker tl-3"><span class="tl-dot"></span><span class="tl-text">Tests con propósito</span></div>
+        <div class="tl-marker tl-4"><span class="tl-dot"></span><span class="tl-text">Onboarding</span></div>
+        <div class="tl-axis">
+          <span class="tl-axis-start">Sprint 1</span>
+          <span class="tl-axis-end">Mes 3+</span>
+        </div>
+      </div>
+    </section>
 
     <div class="key-insight">
       <span class="insight-icon">💡</span>
@@ -76,7 +100,7 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 80% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(96, 165, 250, 0.10) 0%, transparent 55%),
       radial-gradient(ellipse at 10% 80%, rgba(30, 58, 138, 0.16) 0%, transparent 55%);
     z-index: 1;
   }
@@ -113,7 +137,7 @@
   }
 
   .highlight {
-    background: linear-gradient(135deg, #22c55e, var(--color-electric));
+    background: linear-gradient(135deg, var(--color-accent-bright), var(--color-electric));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -146,9 +170,9 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #22c55e;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: var(--color-electric);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.25);
     padding: 3px 10px;
     border-radius: 999px;
   }
@@ -168,6 +192,106 @@
     color: var(--color-neutral-light);
     opacity: 0.78;
     line-height: 1.55;
+  }
+
+  .benefit-timing {
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(96, 165, 250, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .timing-label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-electric);
+    opacity: 0.6;
+  }
+
+  .timing-value {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-neutral-light);
+    opacity: 0.9;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .timeline-header { text-align: center; }
+
+  .timeline-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-electric);
+    opacity: 0.75;
+  }
+
+  .timeline-track {
+    position: relative;
+    padding: var(--spacing-md) var(--spacing-md);
+    background: rgba(30, 58, 138, 0.12);
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    border-radius: var(--radius-sm);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--spacing-md) + 24px);
+    right: calc(var(--spacing-md) + 24px);
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(90deg,
+      var(--color-accent-bright) 0%,
+      var(--color-electric) 100%);
+    opacity: 0.35;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .tl-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent-bright);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+  }
+
+  .tl-text {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-neutral-light);
+    opacity: 0.85;
+    text-align: center;
+  }
+
+  .tl-axis {
+    display: none;
   }
 
   .key-insight {

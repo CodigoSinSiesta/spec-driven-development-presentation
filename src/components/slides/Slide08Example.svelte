@@ -77,7 +77,7 @@
 
     <div class="key-insight">
       <span class="insight-icon">💡</span>
-      <p>La spec no añade trabajo: <strong>reordena el orden en el que ya hacíamos ese trabajo</strong>, moviendo las decisiones difíciles al momento más barato para tomarlas.</p>
+      <p>La spec no añade trabajo: <strong>cambia el momento en el que lo hacíamos</strong>, moviendo las decisiones difíciles al punto más barato para tomarlas.</p>
     </div>
   </div>
 </div>
