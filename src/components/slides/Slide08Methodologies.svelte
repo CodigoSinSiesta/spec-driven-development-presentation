@@ -34,6 +34,7 @@
       tagline: 'Orquestación profunda',
       strengths: ['Paralelismo por oleadas', 'Subagentes aislados (~200k)', 'Verificación + UAT'],
       best: 'Proyectos grandes en Claude Code',
+      level: 'spec-first',
       featured: false,
     },
     {
@@ -41,6 +42,7 @@
       tagline: 'Oficial GitHub · gates fuertes',
       strengths: ['Greenfield-first', '~800 líneas de spec', 'Multi-agente (Copilot, Claude, Cursor…)'],
       best: 'Greenfield medio-grande con gobierno',
+      level: 'spec-first',
       featured: false,
     },
     {
@@ -48,6 +50,7 @@
       tagline: 'Brownfield-first · ligera',
       strengths: ['~250 líneas/spec', '25+ asistentes soportados', 'Multi-cambio en paralelo'],
       best: 'Mantener código legado iterativo',
+      level: 'spec-first',
       featured: true,
     },
     {
@@ -55,6 +58,7 @@
       tagline: 'PRD → tareas',
       strengths: ['Descompone PRDs en backlog', 'Integración MCP nativa', 'Cursor / Windsurf / Roo'],
       best: 'Tu entrada natural es un PRD',
+      level: 'spec-first',
       featured: false,
     },
     {
@@ -62,6 +66,23 @@
       tagline: 'AC formales · cierre disciplinado',
       strengths: ['UNIFY obligatorio', 'In-session sin subagentes', 'Calidad sobre velocidad'],
       best: 'Disciplina de cierre y AC',
+      level: 'spec-first',
+      featured: false,
+    },
+    {
+      name: 'Kiro',
+      tagline: 'VS Code de Amazon · ligera',
+      strengths: ['3 documentos por feature', 'Memory bank "steering"', 'Workflow Req → Design → Tasks'],
+      best: 'Features con User Stories formales',
+      level: 'spec-first',
+      featured: false,
+    },
+    {
+      name: 'Tessl',
+      tagline: 'Private beta · regenera código',
+      strengths: ['// GENERATED FROM SPEC', 'CLI + MCP server', 'Reverse-engineering de código'],
+      best: 'Experimentar spec-as-source',
+      level: 'spec-as-source',
       featured: false,
     },
   ];
@@ -96,14 +117,20 @@
     <section class="tools-section">
       <div class="tools-header">
         <span class="tools-label">Ecosistema SDD</span>
-        <span class="tools-sub">5 herramientas, mismo bucle: <code>especificar → planificar → ejecutar → verificar</code></span>
+        <span class="tools-sub">7 herramientas, mismo bucle: <code>especificar → planificar → ejecutar → verificar</code></span>
       </div>
 
       <div class="tools-grid">
         {#each tools as tool}
-          <article class="tool-card card-glass" class:tool-featured={tool.featured}>
+          <article
+            class="tool-card card-glass"
+            class:tool-featured={tool.featured}
+            class:tool-as-source={tool.level === 'spec-as-source'}
+          >
             {#if tool.featured}
               <span class="featured-badge">★ Recomendada</span>
+            {:else if tool.level === 'spec-as-source'}
+              <span class="level-badge">spec-as-source</span>
             {/if}
             <div class="tool-head">
               <span class="tool-name">{tool.name}</span>
@@ -289,7 +316,7 @@
 
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--spacing-sm);
   }
 
@@ -311,6 +338,10 @@
       inset 0 1px 1px 0 rgba(96, 165, 250, 0.3);
   }
 
+  .tool-as-source {
+    border-color: rgba(196, 181, 253, 0.45);
+  }
+
   .featured-badge {
     position: absolute;
     top: 6px;
@@ -325,6 +356,22 @@
     padding: 3px 8px;
     border-radius: 999px;
     box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  }
+
+  .level-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(196, 181, 253, 0.95);
+    background: rgba(139, 92, 246, 0.18);
+    border: 1px solid rgba(196, 181, 253, 0.35);
+    padding: 2px 7px;
+    border-radius: 999px;
   }
 
   .tool-head {
@@ -438,6 +485,13 @@
   @media (max-width: 900px) {
     .methodologies { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* Pantallas grandes mantienen 4 columnas pero las dos filas se distribuyen */
+  @media (min-width: 1280px) {
+    .tools-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   /* Responsive: phone grande */

@@ -18,6 +18,7 @@
     'hero',
     'the-problem',
     'definition',
+    'three-levels',
     'benefits',
     'when-to-use',
     'when-not-to-use',
@@ -30,10 +31,11 @@
     hero: 'Qué es SDD',
     'the-problem': 'El Problema',
     definition: 'Definición',
+    'three-levels': 'Tres niveles de SDD',
     benefits: 'Beneficios',
     'when-to-use': 'Cuándo usarlo',
     'when-not-to-use': 'Cuándo no usarlo',
-    methodologies: 'SDD vs TDD/BDD',
+    methodologies: 'SDD vs TDD/BDD · Ecosistema',
     example: 'Ejemplo práctico',
     closing: 'Cierre'
   };
