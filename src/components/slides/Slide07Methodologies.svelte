@@ -8,18 +8,18 @@
     animateSlideEntrance(slideElement);
   });
 
-  const symptoms = [
+  const comparison = [
     {
-      title: 'Interpretation gaps',
-      desc: 'Product, backend, and frontend teams infer different behavior from the same ticket.'
+      title: 'SDD',
+      desc: 'Defines product and technical contract before implementation.'
     },
     {
-      title: 'Late validation',
-      desc: 'Critical edge cases appear during QA or release hardening, not during planning.'
+      title: 'TDD',
+      desc: 'Shapes code design by writing low-level tests first.'
     },
     {
-      title: 'Shallow confidence',
-      desc: 'Tests can pass while business behavior still breaks at integration points.'
+      title: 'BDD',
+      desc: 'Expresses behavior in a shared ubiquitous language with scenarios.'
     }
   ];
 </script>
@@ -29,24 +29,24 @@
 
   <div class="slide-content">
     <header class="slide-header">
-      <p class="label">Slide 2 · Problem</p>
-      <h2 class="title">Teams drift when behavior is implicit.</h2>
-      <p class="subtitle">Missing contracts create rework loops that look like “execution issues”.</p>
+      <p class="label">Slide 7 · Method Stack</p>
+      <h2 class="title">SDD frames the system; TDD and BDD refine execution.</h2>
+      <p class="subtitle">They are complementary layers, not competing processes.</p>
     </header>
 
-    <section class="card-glass main-surface" aria-label="Problem symptoms and evidence">
-      <div class="problem-grid">
-        {#each symptoms as symptom}
-          <article class="problem-item">
-            <h3>{symptom.title}</h3>
-            <p>{symptom.desc}</p>
+    <section class="card-glass main-surface" aria-label="Method comparison and evidence">
+      <div class="comparison-grid">
+        {#each comparison as item}
+          <article class="comparison-item">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
           </article>
         {/each}
       </div>
 
       <p class="evidence">
         <strong>Evidence:</strong>
-        In a duplicate-email signup flow, two squads shipped conflicting 409 payloads because the response contract was never specified upfront.
+        In user registration, SDD defines accepted outcomes, BDD captures business scenarios, and TDD guards service-level edge cases.
       </p>
     </section>
   </div>
@@ -65,8 +65,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 18% 75%, rgba(59, 130, 246, 0.16) 0%, transparent 58%),
-      radial-gradient(ellipse at 82% 20%, rgba(30, 58, 138, 0.2) 0%, transparent 55%);
+      radial-gradient(ellipse at 12% 72%, rgba(59, 130, 246, 0.15) 0%, transparent 56%),
+      radial-gradient(ellipse at 88% 26%, rgba(30, 58, 138, 0.18) 0%, transparent 58%);
     z-index: 0;
   }
 
@@ -94,12 +94,12 @@
 
   .title {
     margin: 0;
-    font-size: clamp(1.9rem, 4.8vw, 3.1rem);
+    font-size: clamp(1.82rem, 4.8vw, 3.02rem);
   }
 
   .subtitle {
     margin: 0;
-    max-width: 70ch;
+    max-width: 72ch;
     opacity: 0.84;
   }
 
@@ -108,25 +108,27 @@
     gap: var(--spacing-lg);
   }
 
-  .problem-grid {
+  .comparison-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--spacing-md);
   }
 
-  .problem-item {
-    padding: var(--spacing-md);
-    border: 1px solid rgba(96, 165, 250, 0.24);
+  .comparison-item {
+    background: rgba(10, 22, 40, 0.34);
+    border: 1px solid rgba(96, 165, 250, 0.23);
     border-radius: var(--radius-md);
-    background: rgba(10, 22, 40, 0.35);
+    padding: var(--spacing-md);
+    display: grid;
+    gap: var(--spacing-xs);
   }
 
-  .problem-item h3 {
-    margin: 0 0 var(--spacing-xs);
+  .comparison-item h3 {
+    margin: 0;
     font-size: 1.08rem;
   }
 
-  .problem-item p {
+  .comparison-item p {
     margin: 0;
     font-size: 0.96rem;
   }
@@ -140,7 +142,7 @@
   }
 
   @media (max-width: 900px) {
-    .problem-grid {
+    .comparison-grid {
       grid-template-columns: 1fr;
     }
   }

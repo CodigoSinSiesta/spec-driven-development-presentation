@@ -1,62 +1,62 @@
-# Spec-Driven Development (SDD) - Presentación
+# Spec-Driven Development (SDD) - Presentation
 
-Presentación interactiva sobre **Spec-Driven Development (SDD)** para la comunidad Código Sin Siesta.
+Interactive presentation about **Spec-Driven Development (SDD)** for the Codigo Sin Siesta community.
 
-**Enfoque**: qué es SDD, beneficios, cuándo aplicarlo y cómo se relaciona con TDD/BDD.  
-**Duración estimada**: 30-40 minutos  
+**Focus**: what SDD is, when it works, where it does not, and how it relates to TDD/BDD.  
+**Estimated duration**: 30-40 minutes  
 **Live**: https://codigosinsiesta.github.io/spec-driven-development-presentation/
 
-## Contenido (9 slides)
+## Content (9 slides)
 
-1. Título + qué es SDD
-2. El problema: código sin specs
-3. Definición de SDD
-4. Beneficios principales
-5. Cuándo usar SDD
-6. Cuándo no usar SDD
-7. Relación con TDD y BDD
-8. Ejemplo práctico simple
-9. Conclusión y siguiente paso
+1. Title + what SDD is
+2. The problem: code without explicit specs
+3. Operational definition of SDD
+4. Core benefits
+5. When to use SDD
+6. When not to use SDD
+7. Relationship with TDD and BDD
+8. Practical example
+9. Closing and next step
 
-## Stack técnico
+## Tech stack
 
 - Astro
 - Svelte
-- Tailwind CSS (disponible en el proyecto)
+- Tailwind CSS (available in the project)
 - TypeScript strict
-- Playwright para E2E
+- Playwright for E2E tests
 - Node.js >= 20
 
-## Desarrollo local
+## Local development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Servidor local: `http://localhost:4324/spec-driven-development-presentation/`
+Local server: `http://localhost:4324/spec-driven-development-presentation/`
 
-## Validación
+## Validation
 
 ```bash
 pnpm build
 pnpm test
 ```
 
-## Despliegue
+## Deployment
 
-El workflow de GitHub Pages publica automáticamente en `main`.
+The GitHub Pages workflow publishes automatically from `main`.
 
-## Guía del ponente
+## Speaker guide
 
-Notas por slide en `guia/`.
+Slide notes are available in `guia/`.
 
-## Estándar de marca
+## Brand standard
 
-- Estándar final de validación narrativa y visual: `guia/00-estandar-marca-validacion.md`.
-- Auditoría aplicada a esta presentación: `guia/10-auditoria-marca-sdd-2026-04-14.md`.
-- Gate operativo de publicación: validación CMO + QA técnico (o QA proxy mientras se desbloquea [COD-13](/COD/issues/COD-13)).
+- Narrative and visual validation standard: `guia/00-estandar-marca-validacion.md`.
+- Applied audit for this presentation: `guia/10-auditoria-marca-sdd-2026-04-14.md`.
+- Publishing gate: CMO + technical QA validation (or QA proxy while [COD-13](/COD/issues/COD-13) remains blocked).
 
-## Integración en el site principal
+## Main site integration
 
-Para incluir esta charla en `codigosinsiesta.github.io`, añadir el enlace de esta URL en la sección de presentaciones del sitio principal.
+To include this talk in `codigosinsiesta.github.io`, add this URL in the presentations section of the main site.

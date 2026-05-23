@@ -189,76 +189,20 @@ export function fadeTransition(element: HTMLElement, duration: number = 0.6) {
 }
 
 /**
- * Animate a line drawing (SVG).
- *
- * For <line> elements we force the visual draw to go left-to-right by checking
- * x1 vs x2 and flipping the strokeDashoffset sign when the line is defined
- * right-to-left. <path> and <circle> elements keep the SVG-defined direction
- * because in this deck they're feedback loops / retry arcs where the direction
- * is semantically meaningful.
- *
- * Opt-out: add `data-preserve-direction` on the <svg> (or on a single element)
- * to keep the SVG-defined draw direction. Used for fan-out diagrams where the
- * lines radiate outward from a center and forcing LTR would point them inward.
+ * Animate a line drawing (SVG)
  */
 export function animateLineDraw(svgElement: SVGElement, duration: number = 2) {
   const reduceMotion = prefersReducedMotion();
   const paths = svgElement.querySelectorAll('path, line, circle');
-  const svgPreserves = (svgElement as unknown as HTMLElement).dataset?.preserveDirection !== undefined;
 
   paths.forEach((path) => {
     const length = (path as any).getTotalLength?.() || 0;
-    const elPreserves = (path as unknown as HTMLElement).dataset?.preserveDirection !== undefined;
-
-    let reverse = false;
-    if (!svgPreserves && !elPreserves) {
-      if (path.tagName === 'line') {
-        const x1 = parseFloat(path.getAttribute('x1') || '0');
-        const x2 = parseFloat(path.getAttribute('x2') || '0');
-        if (x1 > x2) reverse = true;
-      } else if (path.tagName === 'path' && length > 0) {
-        const getPoint = (path as any).getPointAtLength;
-        if (typeof getPoint === 'function') {
-          try {
-            const start = getPoint.call(path, 0);
-            const end = getPoint.call(path, length);
-            if (start.x > end.x) reverse = true;
-          } catch {
-            /* ignore: getPointAtLength can throw on degenerate paths */
-          }
-        }
-      }
-    }
-
-    // Preserve any original stroke-dasharray (e.g. dashed retry arrows) so we
-    // can restore it after the draw completes.
-    const originalDasharray = path.getAttribute('stroke-dasharray');
-
-    // Use fromTo and KEEP strokeDasharray fixed at `length` throughout the
-    // animation. If we let GSAP interpolate dasharray alongside dashoffset
-    // (the implicit `from` behavior), the visible portion grows from the
-    // wrong end of the path because both values shrink together.
-    gsap.fromTo(
-      path,
-      {
-        strokeDasharray: length,
-        strokeDashoffset: reverse ? -length : length,
-      },
-      {
-        strokeDasharray: length,
-        strokeDashoffset: 0,
-        duration: reduceMotion ? 0 : duration,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          if (originalDasharray !== null) {
-            path.setAttribute('stroke-dasharray', originalDasharray);
-          } else {
-            path.removeAttribute('stroke-dasharray');
-          }
-          path.removeAttribute('stroke-dashoffset');
-        },
-      }
-    );
+    gsap.from(path, {
+      strokeDasharray: length,
+      strokeDashoffset: length,
+      duration: reduceMotion ? 0 : duration,
+      ease: 'power2.inOut',
+    });
   });
 }
 

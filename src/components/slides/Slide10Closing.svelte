@@ -5,16 +5,16 @@
   onMount(() => { animateSlideEntrance(slideElement); });
 
   const takeaways = [
-    'La especificación ejecutable es el contrato: todos hablan el mismo idioma.',
-    'SDD reduce ambigüedad antes de escribir una sola línea de código.',
-    'TDD, BDD y API-First son instancias del mismo principio: spec primero.',
-    'El retrabajo cae cuando el equipo valida comportamiento, no código.',
-    'Empieza pequeño: una feature crítica, dos sprints, mide el impacto.',
+    'An executable specification is the contract for cross-team alignment.',
+    'SDD removes ambiguity before implementation starts.',
+    'TDD, BDD, and API-first reinforce the same principle: define behavior first.',
+    'Rework drops when teams validate outcomes, not internal details.',
+    'Start small: one critical feature, two sprints, measurable impact.',
   ];
 
   const resources = [
-    { label: 'Presentación publicada', url: 'codigosinsiesta.github.io/spec-driven-development-presentation/' },
-    { label: 'Repositorio GitHub', url: 'github.com/CodigoSinSiesta/spec-driven-development-presentation' },
+    { label: 'Live presentation', url: 'codigosinsiesta.github.io/spec-driven-development-presentation/' },
+    { label: 'GitHub repository', url: 'github.com/CodigoSinSiesta/spec-driven-development-presentation' },
     { label: 'tellmealex.dev', url: 'tellmealex.dev' },
   ];
 </script>
@@ -25,8 +25,8 @@
 
   <div class="slide-content">
     <div class="closing-header">
-      <span class="label">Cierre</span>
-      <h2 class="title">De la intuición al <span class="highlight">contrato</span></h2>
+      <span class="label">Takeaways</span>
+      <h2 class="title">From intuition to explicit <span class="highlight">contracts</span></h2>
     </div>
 
     <div class="main-layout">
@@ -42,21 +42,8 @@
       </div>
 
       <div class="right-col">
-        <div class="next-step-card">
-          <span class="ns-label">Siguiente paso</span>
-          <h3 class="ns-title">Piloto de 2 sprints</h3>
-          <p class="ns-desc">
-            Una feature crítica. Dos métricas: PRs reabiertos por interpretación y tiempo hasta aprobación en QA.
-            Si ambas mejoran, se extiende. Si no, se revisa.
-          </p>
-          <div class="ns-tool">
-            <span class="ns-tool-icon">⭐</span>
-            <span class="ns-tool-text">Herramienta sugerida: <strong>OpenSpec</strong></span>
-          </div>
-        </div>
-
         <div class="resources-card">
-          <h3 class="resources-title">Recursos</h3>
+          <h3 class="resources-title">Resources</h3>
           <div class="resources-list">
             {#each resources as resource}
               <a href="https://{resource.url}" target="_blank" rel="noopener noreferrer" class="resource-link">
@@ -68,8 +55,8 @@
         </div>
 
         <div class="footer-note">
-          <p class="ai-note">Esta presentación fue construida con agentes de IA.</p>
-          <p class="branding">Código Sin Siesta · 2026</p>
+          <p class="ai-note">This presentation was built with AI agents.</p>
+          <p class="branding">Codigo Sin Siesta · 2026</p>
         </div>
       </div>
     </div>
@@ -178,7 +165,9 @@
     background: rgba(30, 58, 138, 0.15);
     border: 1px solid rgba(96, 165, 250, 0.12);
     border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast);
   }
 
   .takeaway:hover {
@@ -208,69 +197,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-  }
-
-  /* Next step card */
-  .next-step-card {
-    padding: var(--spacing-lg);
-    background: rgba(59, 130, 246, 0.12);
-    border: 1px solid rgba(96, 165, 250, 0.35);
-    border-radius: var(--radius-md);
-    box-shadow:
-      0 0 24px rgba(59, 130, 246, 0.12),
-      inset 0 1px 1px 0 rgba(96, 165, 250, 0.25);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .ns-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-electric);
-    opacity: 0.85;
-  }
-
-  .ns-title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--color-neutral-light);
-    margin: 0;
-    line-height: 1.2;
-  }
-
-  .ns-desc {
-    margin: 0;
-    font-size: 0.82rem;
-    color: var(--color-neutral-light);
-    opacity: 0.82;
-    line-height: 1.55;
-  }
-
-  .ns-tool {
-    margin-top: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: rgba(10, 22, 40, 0.4);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-
-  .ns-tool-icon { font-size: 0.95rem; }
-
-  .ns-tool-text {
-    font-size: 0.78rem;
-    color: var(--color-neutral-light);
-    opacity: 0.88;
-  }
-
-  .ns-tool-text strong {
-    color: var(--color-electric);
-    font-weight: 700;
   }
 
   /* Resources card */
@@ -305,7 +231,7 @@
     background: rgba(59, 130, 246, 0.06);
     border-radius: var(--radius-sm);
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast);
   }
 
   .resource-link:hover {

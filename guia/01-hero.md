@@ -1,5 +1,5 @@
-# Slide 1 — Título + Qué es SDD
+# Slide 1 - Title + What SDD Is
 
-- Introducir SDD como disciplina de ingeniería, no como moda.
-- Mensaje clave: primero el contrato, después la implementación.
-- Anclar el contexto en equipos que quieren calidad sin frenar entrega.
+- Introduce SDD as an engineering discipline, not a trend.
+- Core message: contract first, implementation second.
+- Anchor the narrative in teams that want quality without slowing delivery.

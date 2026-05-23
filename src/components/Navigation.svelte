@@ -18,7 +18,6 @@
     'hero',
     'the-problem',
     'definition',
-    'three-levels',
     'benefits',
     'when-to-use',
     'when-not-to-use',
@@ -28,16 +27,15 @@
   ] as const;
 
   const slideTitles: Record<(typeof slideNames)[number], string> = {
-    hero: 'Qué es SDD',
-    'the-problem': 'El Problema',
-    definition: 'Definición',
-    'three-levels': 'Tres niveles de SDD',
-    benefits: 'Beneficios',
-    'when-to-use': 'Cuándo usarlo',
-    'when-not-to-use': 'Cuándo no usarlo',
-    methodologies: 'SDD vs TDD/BDD · Ecosistema',
-    example: 'Ejemplo práctico',
-    closing: 'Cierre'
+    hero: 'What Is SDD',
+    'the-problem': 'The Problem',
+    definition: 'Definition',
+    benefits: 'Core Benefits',
+    'when-to-use': 'When To Use It',
+    'when-not-to-use': 'When Not To Use It',
+    methodologies: 'SDD vs TDD/BDD',
+    example: 'Practical Example',
+    closing: 'Closing'
   };
 
   const totalSlides = slideNames.length;
@@ -94,6 +92,7 @@
 
   function goToSlide(index: number) {
     if (index < 0 || index >= slides.length || index === currentSlide) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (menuOpen) {
       menuOpen = false;
@@ -103,7 +102,7 @@
     if (previousSlide) {
       gsap.to(previousSlide, {
         opacity: 0,
-        duration: 0.3,
+        duration: reduceMotion ? 0 : 0.3,
         ease: 'power2.out',
         onComplete: () => previousSlide.classList.remove('swiper-slide-active')
       });
@@ -197,11 +196,11 @@
     </div>
     <div class="swiper-pagination"></div>
 
-    <button class="swiper-button-prev nav-btn nav-btn-prev" title="Diapositiva anterior" onclick={prevSlide}>
+    <button class="swiper-button-prev nav-btn nav-btn-prev" title="Previous slide" aria-label="Previous slide" onclick={prevSlide}>
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
 
-    <button class="swiper-button-next nav-btn nav-btn-next" title="Siguiente diapositiva" onclick={nextSlide}>
+    <button class="swiper-button-next nav-btn nav-btn-next" title="Next slide" aria-label="Next slide" onclick={nextSlide}>
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
   </div>
@@ -212,7 +211,7 @@
     <span class="counter-total">{totalSlides}</span>
   </div>
 
-  <button class="hamburger-btn" class:open={menuOpen} title="Menú de navegación" onclick={() => menuOpen = !menuOpen}>
+  <button class="hamburger-btn" class:open={menuOpen} title="Open slide navigation" aria-label="Open slide navigation" onclick={() => menuOpen = !menuOpen}>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
@@ -224,8 +223,8 @@
 
   <div class="slide-drawer" class:open={menuOpen}>
     <div class="drawer-header">
-      <span class="drawer-title">Navegación</span>
-      <button class="drawer-close" title="Cerrar menú" onclick={() => menuOpen = false}>
+      <span class="drawer-title">Navigation</span>
+      <button class="drawer-close" title="Close navigation" aria-label="Close navigation" onclick={() => menuOpen = false}>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -307,7 +306,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-base);
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      transform var(--transition-base);
     backdrop-filter: blur(8px);
   }
 
@@ -360,7 +362,10 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    transition: all var(--transition-base);
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      transform var(--transition-base);
     backdrop-filter: blur(8px);
   }
 
@@ -370,7 +375,9 @@
     height: 2px;
     background: var(--color-neutral-light);
     border-radius: 2px;
-    transition: all var(--transition-fast);
+    transition:
+      opacity var(--transition-fast),
+      transform var(--transition-fast);
     transform-origin: center;
   }
 
@@ -475,11 +482,13 @@
   }
 
   @media (max-width: 768px) {
-    /* En mobile las flechas laterales tapan contenido; se navega por swipe + drawer. */
-    .nav-btn-prev,
-    .nav-btn-next {
-      display: none;
+    .nav-btn {
+      width: 44px;
+      height: 44px;
     }
+
+    .nav-btn-prev { left: var(--spacing-lg); }
+    .nav-btn-next { right: var(--spacing-lg); }
 
     .slide-counter {
       bottom: var(--spacing-lg);

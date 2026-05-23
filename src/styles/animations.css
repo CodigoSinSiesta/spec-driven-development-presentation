@@ -103,7 +103,7 @@
 
 /* Hover Glow Effect */
 .hover-glow {
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base);
   position: relative;
 }
 
