@@ -137,6 +137,13 @@ a:hover {
   color: var(--color-accent-bright);
 }
 
+:where(a, button, [role='button'], [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 3px solid var(--color-electric);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.2);
+  border-radius: var(--radius-sm);
+}
+
 /* ============================================
    GLASSMORPHISM CARDS
    ============================================ */
@@ -150,7 +157,11 @@ a:hover {
   box-shadow:
     0 8px 32px 0 rgba(10, 22, 40, 0.8),
     inset 0 1px 1px 0 rgba(96, 165, 250, 0.15);
-  transition: all var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
 
 .card-glass:hover {
@@ -177,7 +188,12 @@ a:hover {
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
   position: relative;
   overflow: hidden;
 }
@@ -533,5 +549,23 @@ a:hover {
     /* Space for top nav elements (hamburger) and bottom counter */
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animated-grid,
+  .orb,
+  .eyebrow-dot {
+    animation: none !important;
   }
 }
