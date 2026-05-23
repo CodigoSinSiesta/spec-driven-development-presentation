@@ -1,0 +1,37 @@
+src/components/slides/Slide04ThreeLevels.svelte
+  s_0851cae21a93e5::t_21369eff60b0b5 2-3,5-10,12-13,16-17,20-24
+src/components/slides/Slide10Closing.svelte
+  s_0851cae21a93e5::t_101a74490b878b 2,5-23
+src/components/slides/Slide03Definition.svelte
+  s_0851cae21a93e5::t_77b3c70e25b891 2,5-26
+src/components/slides/Slide05Benefits.svelte
+  s_0851cae21a93e5::t_36dee93c8667da 2-3,5-10,12-15,18-21,24-27,30-36
+src/components/slides/Slide07WhenNotToUse.svelte
+  s_0851cae21a93e5::t_ccd82099dd859a 2-3,5-10,13,17,21,25-28
+src/components/slides/Slide06WhenToUse.svelte
+  s_0851cae21a93e5::t_480d738954c395 2-3,5-10,13,17,21,25-28
+src/components/slides/Slide09Example.svelte
+  s_0851cae21a93e5::t_64f00bee067777 2,5-36
+src/components/slides/Slide02TheProblem.svelte
+  s_0851cae21a93e5::t_17b374d53f1410 2-3,5-10,13,17,21,23-25
+src/components/slides/Slide08Methodologies.svelte
+  s_0851cae21a93e5::t_578b7393228446 2,5-19
+src/components/slides/Slide01Hero.svelte
+  s_0851cae21a93e5::t_00b70288590d3a 2,5-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "baff28fae087656826ac966059f07befc809890b",
+  "prompts": {},
+  "sessions": {
+    "s_0851cae21a93e5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8adf6cab-2a03-46e5-8509-a8c3aad9a219",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Alejandro de la Fuente de la Rosa <alejandro.delafuentedelarosa@emeal.nttdata.com>"
+    }
+  }
+}
