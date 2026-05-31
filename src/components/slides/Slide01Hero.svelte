@@ -12,7 +12,7 @@
   <div class="slide-content">
     <div class="eyebrow">
       <span class="eyebrow-dot"></span>
-      <span>SDD · Codigo Sin Siesta · 2026</span>
+      <span>SDD · Código Sin Siesta · 2026</span>
     </div>
 
     <h1 class="title">
@@ -21,8 +21,8 @@
     </h1>
 
     <p class="subtitle">
-      Write the behavior contract first.<br />
-      Less ambiguity, less rework, higher team quality.
+      Escribir primero el contrato de comportamiento.<br />
+      Menos ambigüedad, menos retrabajo, más calidad de equipo.
     </p>
 
     <div class="tools-row">
@@ -30,18 +30,18 @@
       <span class="tool-badge">BDD</span>
       <span class="tool-badge">API-First</span>
       <span class="tool-badge">OpenAPI</span>
-      <span class="tool-badge highlight-badge">Specifications</span>
+      <span class="tool-badge highlight-badge">Especificaciones</span>
     </div>
 
     <div class="author-card card-glass">
       <img src="https://www.gravatar.com/avatar/8461e0b8674185c1df153079e820504b?s=120" alt="Alejandro de la Fuente" class="author-avatar" />
       <div class="author-info">
         <p class="author-name">Alejandro de la Fuente</p>
-        <p class="author-role">Tech Lead · NTT Data · GDNE</p>
+        <p class="author-role">Technical Leader · NTT Data · GDNE</p>
         <div class="author-links">
-          <a href="https://tellmealex.dev" target="_blank" rel="noopener noreferrer" class="author-link" aria-label="Visit Alejandro's website">🌐</a>
-          <a href="https://github.com/TellMeAlex" target="_blank" rel="noopener noreferrer" class="author-link" aria-label="Visit Alejandro's GitHub profile">🐙</a>
-          <a href="https://es.linkedin.com/in/alejandro-de-la-fuente" target="_blank" rel="noopener noreferrer" class="author-link" aria-label="Visit Alejandro's LinkedIn profile">💼</a>
+          <a href="https://tellmealex.dev" target="_blank" rel="noopener noreferrer" class="author-link">🌐</a>
+          <a href="https://github.com/TellMeAlex" target="_blank" rel="noopener noreferrer" class="author-link">🐙</a>
+          <a href="https://es.linkedin.com/in/alejandro-de-la-fuente" target="_blank" rel="noopener noreferrer" class="author-link">💼</a>
         </div>
       </div>
     </div>
